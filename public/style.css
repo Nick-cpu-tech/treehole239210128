@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #4a90e2;
+    --primary-light: #6aa9f4;
+    --primary-dark: #357abd;
+    --bg-color: #f0f8ff;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --gray-text: #888888;
+    --danger-color: #e74c3c;
+    --like-color: #ff9a8b;
+    --like-active: #ff6b57;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    background-image: linear-gradient(120deg, #f0f8ff 0%, #e6f2ff 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 彩色粒子背景动画 */
+.particle {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    animation: float linear infinite;
+    opacity: 0.7; /* 提高不透明度 */
+}
+
+/* 蓝色粒子 */
+.particle:nth-child(1) { width: 16px; height: 16px; background-color: rgba(74, 144, 226, 0.6); top: 10%; left: 5%; animation-duration: 20s; animation-delay: 0s; }
+.particle:nth-child(2) { width: 14px; height: 14px; background-color: rgba(74, 144, 226, 0.5); top: 30%; left: 25%; animation-duration: 18s; animation-delay: 1s; }
+.particle:nth-child(3) { width: 18px; height: 18px; background-color: rgba(74, 144, 226, 0.7); top: 50%; left: 45%; animation-duration: 22s; animation-delay: 2s; }
+.particle:nth-child(4) { width: 12px; height: 12px; background-color: rgba(74, 144, 226, 0.4); top: 70%; left: 65%; animation-duration: 16s; animation-delay: 3s; }
+.particle:nth-child(5) { width: 15px; height: 15px; background-color: rgba(74, 144, 226, 0.6); top: 90%; left: 85%; animation-duration: 24s; animation-delay: 4s; }
+
+/* 粉色粒子 */
+.particle:nth-child(6) { width: 14px; height: 14px; background-color: rgba(255, 154, 139, 0.6); top: 20%; left: 15%; animation-duration: 19s; animation-delay: 0.5s; }
+.particle:nth-child(7) { width: 16px; height: 16px; background-color: rgba(255, 154, 139, 0.5); top: 40%; left: 35%; animation-duration: 21s; animation-delay: 1.5s; }
+.particle:nth-child(8) { width: 13px; height: 13px; background-color: rgba(255, 154, 139, 0.7); top: 60%; left: 55%; animation-duration: 17s; animation-delay: 2.5s; }
+.particle:nth-child(9) { width: 15px; height: 15px; background-color: rgba(255, 154, 139, 0.4); top: 80%; left: 75%; animation-duration: 23s; animation-delay: 3.5s; }
+.particle:nth-child(10) { width: 17px; height: 17px; background-color: rgba(255, 154, 139, 0.6); top: 5%; left: 95%; animation-duration: 25s; animation-delay: 4.5s; }
+
+/* 漂浮动画 */
+@keyframes float {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(-60px) translateX(30px) rotate(180deg); }
+    100% { transform: translateY(0) translateX(0) rotate(360deg); }
+}
+
+/* 背景装饰圆 */
+.bg-circle {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.1;
+}
+.bg-circle-1 { width: 300px; height: 300px; background-color: var(--primary-color); top: 10%; right: -100px; }
+.bg-circle-2 { width: 200px; height: 200px; background-color: var(--like-color); bottom: 10%; left: -80px; }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+.navbar h1 { font-size: 1.8rem; letter-spacing: 2px; }
+.subtitle { font-size: 0.95rem; opacity: 0.9; }
+
+/* 毛玻璃输入卡片 */
+.input-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+.input-card:hover { transform: translateY(-5px); }
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    resize: none;
+    font-size: 1.05rem;
+    outline: none;
+    transition: all 0.3s, box-shadow 0.5s;
+    background-color: #f9f9f9;
+}
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.15);
+    background-color: white;
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+#charCount { font-size: 0.9rem; color: var(--gray-text); }
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+}
+
+.message-list { list-style: none; }
+
+/* 毛玻璃留言卡片 */
+.message-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color);
+    animation: fadeIn 0.5s ease;
+    transition: all 0.3s ease;
+}
+.message-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.msg-content {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    word-break: break-all;
+    line-height: 1.7;
+}
+
+.msg-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    border-top: 1px solid #f5f5f5;
+    padding-top: 10px;
+}
+
+/* 点赞按钮 */
+.btn-like {
+    background-color: var(--like-color);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-like:hover { background-color: var(--like-active); transform: scale(1.05); }
+.btn-like:active { transform: scale(0.95); transition: transform 0.1s; }
+
+.btn-delete {
+    color: var(--danger-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.message-card:hover .btn-delete { opacity: 1; }
+
+footer {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin: 50px 0 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
